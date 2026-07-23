@@ -2,6 +2,7 @@ from flask import Flask, jsonify
 import os
 from azure.monitor.opentelemetry import configure_azure_monitor
 from prometheus_flask_exporter import PrometheusMetrics
+from prometheus_client import Gauge
 
 app = Flask(__name__)
 
@@ -11,7 +12,7 @@ if "APPLICATIONINSIGHTS_CONNECTION_STRING" in os.environ:
     )
 
 metrics = PrometheusMetrics(app)
-errors_gauge = metrics.gauge('log_erreurs_total', "Nombre d'erreurs détectées")
+errors_gauge = Gauge('log_erreurs_total', "Nombre d'erreurs détectées")
 errors_gauge.set(0)
 
 
@@ -26,4 +27,5 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000)
+    port = int(os.environ.get("PORT", 8000))
+    app.run(host='0.0.0.0', port=port)
