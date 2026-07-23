@@ -1,5 +1,5 @@
 data "azurerm_resource_group" "rg" {
-  name = "fbarryRG"
+  name = "frg-fbarry-student"
 }
 
 # Creation of the App Service Plan
