@@ -1,0 +1,11 @@
+# Fichiers locaux de Terraform
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+crash.log
+
+# Fichiers OS
+.DS_Store
