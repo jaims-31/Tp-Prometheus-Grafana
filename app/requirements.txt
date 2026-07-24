@@ -1,0 +1,5 @@
+Flask==3.0.3
+gunicorn==21.2.0
+azure-monitor-opentelemetry==1.6.0
+prometheus-flask-exporter==0.23.0
+prometheus-client==0.15.0
